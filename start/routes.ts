@@ -19,3 +19,11 @@ Route.group(() => {
   Route.put('/:guid', 'MoviesController.update')
   Route.delete('/:guid', 'MoviesController.destroy')
 }).prefix('/movies')
+
+Route.group(() => {
+  Route.post('', 'AnimesController.store')
+  Route.get('', 'AnimesController.index')
+  Route.get('/:guid', 'AnimesController.show')
+  Route.put('/:guid', 'AnimesController.update')
+  Route.delete('/:guid', 'AnimesController.destroy')
+}).prefix('/animes')
