@@ -27,3 +27,11 @@ Route.group(() => {
   Route.put('/:guid', 'AnimesController.update')
   Route.delete('/:guid', 'AnimesController.destroy')
 }).prefix('/animes')
+
+Route.group(() => {
+  Route.post('', 'SeriesController.store')
+  Route.get('', 'SeriesController.index')
+  Route.get('/:guid', 'SeriesController.show')
+  Route.put('/:guid', 'SeriesController.update')
+  Route.delete('/:guid', 'SeriesController.destroy')
+}).prefix('/series')
