@@ -13,7 +13,7 @@ export default class Animes extends BaseSchema {
       table.integer('episodes').notNullable()
       table.integer('year').notNullable()
       table.string('direction').notNullable()
-      table.string('synopsis').notNullable()
+      table.text('synopsis').notNullable()
       table.string('folder', 500).notNullable()
       table.string('trailer').notNullable()
       table.timestamp('created_at', { useTz: true })

@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class Series extends BaseSchema {
-  protected tableName = 'series'
+export default class Movies extends BaseSchema {
+  protected tableName = 'movies'
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
@@ -9,11 +9,10 @@ export default class Series extends BaseSchema {
       table.uuid('guid').index()
       table.string('name', 100).unique().notNullable()
       table.string('genre', 800).notNullable()
-      table.integer('seasons').notNullable()
-      table.integer('episodes').notNullable()
+      table.string('time').notNullable()
       table.integer('year').notNullable()
       table.string('direction').notNullable()
-      table.string('synopsis').notNullable()
+      table.text('synopsis').notNullable()
       table.string('folder', 500).notNullable()
       table.string('trailer').notNullable()
       table.timestamp('created_at', { useTz: true })
