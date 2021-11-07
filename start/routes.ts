@@ -13,20 +13,20 @@ Route.group(() => {
 }).prefix('/users')
 
 Route.group(() => {
-  Route.post('', 'MoviesController.store')
-  Route.get('', 'MoviesController.index')
-  Route.get('/:guid', 'MoviesController.show')
-  Route.put('/:guid', 'MoviesController.update')
-  Route.delete('/:guid', 'MoviesController.destroy')
-}).prefix('/movies')
-
-Route.group(() => {
   Route.post('', 'AnimesController.store')
   Route.get('', 'AnimesController.index')
   Route.get('/:guid', 'AnimesController.show')
   Route.put('/:guid', 'AnimesController.update')
   Route.delete('/:guid', 'AnimesController.destroy')
 }).prefix('/animes')
+
+Route.group(() => {
+  Route.post('', 'MoviesController.store')
+  Route.get('', 'MoviesController.index')
+  Route.get('/:guid', 'MoviesController.show')
+  Route.put('/:guid', 'MoviesController.update')
+  Route.delete('/:guid', 'MoviesController.destroy')
+}).prefix('/movies')
 
 Route.group(() => {
   Route.post('', 'SeriesController.store')
