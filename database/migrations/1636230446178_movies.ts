@@ -8,6 +8,7 @@ export default class Movies extends BaseSchema {
       table.increments('id').primary()
       table.uuid('guid').index()
       table.string('name', 100).unique().notNullable()
+      table.text('link').notNullable()
       table.string('genre', 800).notNullable()
       table.string('time').notNullable()
       table.integer('year').notNullable()

@@ -18,6 +18,9 @@ export default class Series extends BaseModel {
   public name: string
 
   @column()
+  public link: string
+
+  @column()
   public genre: string
 
   @column()

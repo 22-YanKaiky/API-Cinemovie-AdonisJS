@@ -18,6 +18,9 @@ export default class Animes extends BaseModel {
   public name: string
 
   @column()
+  public link: string
+
+  @column()
   public genre: string
 
   @column()

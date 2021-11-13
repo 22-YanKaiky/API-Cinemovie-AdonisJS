@@ -5,6 +5,7 @@ export default class AnimesController {
         let anime = new Anime()
 
         anime.name = request.body().name
+        anime.link = request.body().link
         anime.genre = request.body().genre
         anime.seasons = request.body().seasons
         anime.episodes = request.body().episodes
@@ -36,6 +37,7 @@ export default class AnimesController {
         const anime = await Anime.findByOrFail('guid', request.param('guid'))
 
         anime.name = request.body().name
+        anime.link = request.body().link
         anime.genre = request.body().genre
         anime.seasons = request.body().seasons
         anime.episodes = request.body().episodes

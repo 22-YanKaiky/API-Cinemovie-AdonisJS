@@ -5,6 +5,7 @@ export default class SeriesController {
         let serie = new Serie()
 
         serie.name = request.body().name
+        serie.link = request.body().link
         serie.genre = request.body().genre
         serie.seasons = request.body().seasons
         serie.episodes = request.body().episodes
@@ -36,6 +37,7 @@ export default class SeriesController {
         const serie = await Serie.findByOrFail('guid', request.param('guid'))
 
         serie.name = request.body().name
+        serie.link = request.body().link
         serie.genre = request.body().genre
         serie.seasons = request.body().seasons
         serie.episodes = request.body().episodes

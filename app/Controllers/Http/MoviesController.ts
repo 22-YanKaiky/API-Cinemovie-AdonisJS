@@ -5,6 +5,7 @@ export default class MoviesController {
         let movie = new Movie()
 
         movie.name = request.body().name
+        movie.link = request.body().link
         movie.genre = request.body().genre
         movie.time = request.body().time
         movie.year = request.body().year
@@ -35,6 +36,7 @@ export default class MoviesController {
         const movie = await Movie.findByOrFail('guid', request.param('guid'))
 
         movie.name = request.body().name
+        movie.link = request.body().link
         movie.genre = request.body().genre
         movie.time = request.body().time
         movie.year = request.body().year
