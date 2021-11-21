@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, beforeCreate, column } from '@ioc:Adonis/Lucid/Orm'
 import { v4 as uuid } from 'uuid';
 
-export default class Movies extends BaseModel {
+export default class Animes extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
@@ -10,7 +10,7 @@ export default class Movies extends BaseModel {
   public guid: string
 
   @beforeCreate()
-  public static async createUUID (movie: Movies) {
+  public static async createUUID (movie: Animes) {
     movie.guid = uuid();
   }
   
@@ -24,8 +24,11 @@ export default class Movies extends BaseModel {
   public genre: string
 
   @column()
-  public time: string
+  public seasons: number
 
+  @column()
+  public episodes: number
+  
   @column()
   public year: number
 

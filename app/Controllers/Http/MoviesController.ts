@@ -5,6 +5,7 @@ export default class MoviesController {
         let movie = new Movie()
 
         movie.name = request.body().name
+        movie.link = request.body().link
         movie.genre = request.body().genre
         movie.time = request.body().time
         movie.year = request.body().year
@@ -28,20 +29,26 @@ export default class MoviesController {
 
         if (!movie) return response.status(404).send({ message: "Filme não encontrado" })
 
-        console.log(movie)
-
         return response.status(200).send(movie)
     }
 
     async update({ request, response }) {
         const movie = await Movie.findByOrFail('guid', request.param('guid'))
+
         movie.name = request.body().name
+        movie.link = request.body().link
+        movie.genre = request.body().genre
+        movie.time = request.body().time
+        movie.year = request.body().year
+        movie.direction = request.body().direction
+        movie.synopsis = request.body().synopsis
+        movie.folder = request.body().folder
+        movie.trailer = request.body().trailer
+        
         await movie.save()
 
         return response.status(201).send(movie);
     }
-
-
 
     async destroy({ request, response }) {
         const movie = await Movie.findByOrFail('guid', request.param('guid'));
