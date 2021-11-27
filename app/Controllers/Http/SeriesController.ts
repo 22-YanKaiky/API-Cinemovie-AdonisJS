@@ -26,7 +26,7 @@ export default class SeriesController {
     }
 
     async show({ request, response }) {
-        const serie = await Serie.findBy('guid', request.param('guid'))
+        const serie = await Serie.findBy('guid', request.param('id'))
 
         if (!serie) return response.status(404).send({ message: "Série não encontrada" })
 
@@ -34,7 +34,7 @@ export default class SeriesController {
     }
 
     async update({ request, response }) {
-        const serie = await Serie.findByOrFail('guid', request.param('guid'))
+        const serie = await Serie.findByOrFail('guid', request.param('id'))
 
         serie.name = request.body().name
         serie.link = request.body().link
@@ -53,7 +53,7 @@ export default class SeriesController {
     }
 
     async destroy({ request, response }) {
-        const serie = await Serie.findByOrFail('guid', request.param('guid'));
+        const serie = await Serie.findByOrFail('guid', request.param('id'));
         await serie?.delete()
         return response.status(200).send({ message: "Série deletada com sucesso" })
     }

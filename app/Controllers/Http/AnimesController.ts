@@ -26,7 +26,7 @@ export default class AnimesController {
     }
 
     async show({ request, response }) {
-        const anime = await Anime.findBy('guid', request.param('guid'))
+        const anime = await Anime.findBy('guid', request.param('id'))
 
         if (!anime) return response.status(404).send({ message: "Anime não encontrado" })
 
@@ -34,7 +34,7 @@ export default class AnimesController {
     }
 
     async update({ request, response }) {
-        const anime = await Anime.findByOrFail('guid', request.param('guid'))
+        const anime = await Anime.findByOrFail('guid', request.param('id'))
 
         anime.name = request.body().name
         anime.link = request.body().link
@@ -53,7 +53,7 @@ export default class AnimesController {
     }
 
     async destroy({ request, response }) {
-        const anime = await Anime.findByOrFail('guid', request.param('guid'));
+        const anime = await Anime.findByOrFail('guid', request.param('id'));
         await anime?.delete()
         return response.status(200).send({ message: "Anime deletado com sucesso" })
     }

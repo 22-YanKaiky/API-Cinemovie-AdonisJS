@@ -25,7 +25,7 @@ export default class MoviesController {
     }
 
     async show({ request, response }) {
-        const movie = await Movie.findBy('guid', request.param('guid'))
+        const movie = await Movie.findBy('guid', request.param('id'))
 
         if (!movie) return response.status(404).send({ message: "Filme não encontrado" })
 
@@ -33,7 +33,7 @@ export default class MoviesController {
     }
 
     async update({ request, response }) {
-        const movie = await Movie.findByOrFail('guid', request.param('guid'))
+        const movie = await Movie.findByOrFail('guid', request.param('id'))
 
         movie.name = request.body().name
         movie.link = request.body().link
@@ -51,7 +51,7 @@ export default class MoviesController {
     }
 
     async destroy({ request, response }) {
-        const movie = await Movie.findByOrFail('guid', request.param('guid'));
+        const movie = await Movie.findByOrFail('guid', request.param('id'));
         await movie?.delete()
         return response.status(200).send({ message: "Filme deletado com sucesso" })
     }
